@@ -1,5 +1,5 @@
 {
-  "name": "bitcore-explorers",
+  "name": "litecore-explorers",
   "version": "1.0.1",
   "description": "Module to query blockchain apis for Bitcore.",
   "main": "index.js",
@@ -24,6 +24,12 @@
   "bugs": {
     "url": "https://github.com/bitpay/bitcore-explorers/issues"
   },
+  "contributors": [
+    {
+      "name": "Michael Rodriguez",
+      "email": "michael@rodtec.org"
+    }
+  ],
   "browser": {
     "request": "browser-request"
   },
@@ -37,8 +43,8 @@
     "sinon": "^1.12.2"
   },
   "dependencies": {
-    "bitcore-lib": "^0.13.14",
     "browser-request": "^0.3.3",
+    "litecore-lib": "github:majestic84/litecore-lib",
     "request": "^2.51.0"
   }
 }
