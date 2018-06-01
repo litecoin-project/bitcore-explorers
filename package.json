@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "browser-request": "^0.3.3",
-    "litecore-lib": "github:majestic84/litecore-lib",
+    "litecore-lib": "^0.13.22",
     "request": "^2.51.0"
   }
 }
