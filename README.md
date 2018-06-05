@@ -5,28 +5,122 @@
 [![Build Status](https://img.shields.io/travis/bitpay/bitcore-explorers.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-explorers)
 [![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-explorers.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-explorers)
 
-A module for [bitcore](https://github.com/bitpay/bitcore) that implements HTTP requests to different Web APIs to query the state of the blockchain.
+A module for [litecore](https://github.com/litecoin-project/litecore) that implements HTTP requests to different Web APIs to query the state of the blockchain.
 
 ## Getting started
 
 Be careful! When using this module, the information retrieved from remote servers may be compromised and not reflect the actual state of the blockchain.
 
 ```sh
-npm install bitcore-explorers
-bower install bitcore-explorers
+npm install litecore-explorers
+bower install litecore-explorers
 ```
 
-At the moment, only Insight is supported, and only getting the UTXOs for an address and broadcasting a transaction.
+### UTXOS
 
 ```javascript
 var explorers = require('bitcore-explorers');
 var insight = new explorers.Insight();
 
-insight.getUtxos('1Bitcoin...', function(err, utxos) {
+insight.getUtxos('mLitecoin...', function(err, utxos) {
   if (err) {
     // Handle errors...
   } else {
     // Maybe use the UTXOs to create a transaction
+  }
+});
+```
+
+You can optionally pass a minimum confirmation amount, and getUtxos will only return unspent transactions with at least that many confirmations.
+
+```javascript
+var explorers = require('bitcore-explorers');
+var insight = new explorers.Insight();
+
+insight.getUtxos({address: 'mLitecoin...', minconf: 5}, function(err, utxos) {
+  if (err) {
+    // Handle errors...
+  } else {
+    // UTXOs with at least 5 confirmations are here
+  }
+});
+```
+
+### Address
+
+Get information about a Litecoin address:
+
+```javascript
+var explorers = require('bitcore-explorers');
+var insight = new explorers.Insight();
+
+insight.address('mLitecoin...', function(err, data) {
+  if (err) {
+    // Handle errors...
+  } else {
+    // Address information here
+  }
+});
+```
+
+You can also specify a "from" and "to" range, useful for paging through the transaction history of an address:
+
+```javascript
+var explorers = require('bitcore-explorers');
+var insight = new explorers.Insight();
+
+insight.address({address: 'mLitecoin...', from: 1000, to: 2000}, function(err, data) {
+  if (err) {
+    // Handle errors...
+  } else {
+    // Address information here
+  }
+});
+```
+
+### Blocks
+
+Get information about recent blocks:
+
+```javascript
+var explorers = require('bitcore-explorers');
+var insight = new explorers.Insight();
+
+insight.getBlocks(function(err, blocks) {
+  if (err) {
+    // Handle errors...
+  } else {
+    //Recent block data here
+  }
+});
+```
+
+Get information about a specific block, by its blockhash:
+
+```javascript
+var explorers = require('bitcore-explorers');
+var insight = new explorers.Insight();
+
+insight.getBlock('369005760377532901c126ae4e907352f66624033275c92803f538773415792a', function(err, block) {
+  if (err) {
+    // Handle errors...
+  } else {
+    //Block data here
+  }
+});
+```
+
+### Broadcast a Transaction
+
+```javascript
+var explorers = require('bitcore-explorers');
+var insight = new explorers.Insight();
+
+insight.broadcast(tx, function(err, returnedTxId) {
+  if (err) {
+    // Handle errors...
+  } else {
+    // Mark the transaction as broadcasted
   }
 });
 ```
