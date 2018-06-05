@@ -1,11 +1,8 @@
-<img src="http://bitcore.io/css/images/module-explorer.png" alt="bitcore explorers" height="35">
-# Blockchain APIs for bitcore
+# Blockchain APIs for Litecore
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore-explorers.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-explorers)
-[![Build Status](https://img.shields.io/travis/bitpay/bitcore-explorers.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-explorers)
-[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-explorers.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-explorers)
+[![NPM Package](https://img.shields.io/npm/v/litecore-explorers.svg?style=flat-square)](https://www.npmjs.org/package/litecore-explorers)
 
-A module for [litecore](https://github.com/litecoin-project/litecore) that implements HTTP requests to different Web APIs to query the state of the blockchain.
+A module for [Litecore](https://github.com/litecoin-project/litecore) that implements HTTP requests to different Web APIs to query the state of the blockchain.
 
 ## Getting started
 
@@ -16,10 +13,10 @@ npm install litecore-explorers
 bower install litecore-explorers
 ```
 
-### UTXOS
+### UTXOs
 
 ```javascript
-var explorers = require('bitcore-explorers');
+var explorers = require('litecore-explorers');
 var insight = new explorers.Insight();
 
 insight.getUtxos('mLitecoin...', function(err, utxos) {
@@ -34,7 +31,7 @@ insight.getUtxos('mLitecoin...', function(err, utxos) {
 You can optionally pass a minimum confirmation amount, and getUtxos will only return unspent transactions with at least that many confirmations.
 
 ```javascript
-var explorers = require('bitcore-explorers');
+var explorers = require('litecore-explorers');
 var insight = new explorers.Insight();
 
 insight.getUtxos({address: 'mLitecoin...', minconf: 5}, function(err, utxos) {
@@ -51,7 +48,7 @@ insight.getUtxos({address: 'mLitecoin...', minconf: 5}, function(err, utxos) {
 Get information about a Litecoin address:
 
 ```javascript
-var explorers = require('bitcore-explorers');
+var explorers = require('litecore-explorers');
 var insight = new explorers.Insight();
 
 insight.address('mLitecoin...', function(err, data) {
@@ -66,7 +63,7 @@ insight.address('mLitecoin...', function(err, data) {
 You can also specify a "from" and "to" range, useful for paging through the transaction history of an address:
 
 ```javascript
-var explorers = require('bitcore-explorers');
+var explorers = require('litecore-explorers');
 var insight = new explorers.Insight();
 
 insight.address({address: 'mLitecoin...', from: 1000, to: 2000}, function(err, data) {
@@ -83,7 +80,7 @@ insight.address({address: 'mLitecoin...', from: 1000, to: 2000}, function(err, d
 Get information about recent blocks:
 
 ```javascript
-var explorers = require('bitcore-explorers');
+var explorers = require('litecore-explorers');
 var insight = new explorers.Insight();
 
 insight.getBlocks(function(err, blocks) {
@@ -98,7 +95,7 @@ insight.getBlocks(function(err, blocks) {
 Get information about a specific block, by its blockhash:
 
 ```javascript
-var explorers = require('bitcore-explorers');
+var explorers = require('litecore-explorers');
 var insight = new explorers.Insight();
 
 insight.getBlock('369005760377532901c126ae4e907352f66624033275c92803f538773415792a', function(err, block) {
@@ -113,7 +110,7 @@ insight.getBlock('369005760377532901c126ae4e907352f66624033275c92803f53877341579
 ### Broadcast a Transaction
 
 ```javascript
-var explorers = require('bitcore-explorers');
+var explorers = require('litecore-explorers');
 var insight = new explorers.Insight();
 
 insight.broadcast(tx, function(err, returnedTxId) {
@@ -125,14 +122,8 @@ insight.broadcast(tx, function(err, returnedTxId) {
 });
 ```
 
-## Contributing
-
-See [CONTRIBUTING.md](https://github.com/bitpay/bitcore/blob/master/CONTRIBUTING.md) on the main bitcore repo for information about how to contribute.
-
 ## License
 
-Code released under [the MIT license](https://github.com/bitpay/bitcore/blob/master/LICENSE).
-
-Copyright 2013-2015 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
+Code released under [the MIT license](https://github.com/bitpay/litecore/blob/master/LICENSE).
 
 [bitcore]: http://github.com/bitpay/bitcore-explorers

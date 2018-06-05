@@ -1,6 +1,6 @@
 'use strict';
 
-var build = require('bitcore-build');
+var build = require('litecore-build');
 
 build('explorers');
 
