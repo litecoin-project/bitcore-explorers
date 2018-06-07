@@ -1,7 +1,7 @@
 {
   "name": "litecore-explorers",
   "version": "1.0.1",
-  "description": "Module to query blockchain apis for Bitcore.",
+  "description": "Module to query blockchain apis for Litecore.",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -12,30 +12,30 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore-explorers.git"
+    "url": "https://github.com/litecoin-project/litecore-explorers.git"
   },
   "keywords": [
-    "bitcoin",
-    "bitcore",
+    "litecoin",
+    "litecore",
     "insight"
   ],
   "author": "BitPay",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bitpay/bitcore-explorers/issues"
+    "url": "https://github.com/litecoin-project/litecore-explorers/issues"
   },
   "contributors": [
     {
       "name": "Michael Rodriguez",
-      "email": "michael@rodtec.org"
+      "email": "michael@zulurepublic.io"
     }
   ],
   "browser": {
     "request": "browser-request"
   },
-  "homepage": "https://github.com/bitpay/bitcore-explorers",
+  "homepage": "https://github.com/litecoin-project/litecore-explorers",
   "devDependencies": {
-    "bitcore-build": "git://github.com/bitpay/bitcore-build.git",
+    "bitcore-build": "git://github.com/litecoin-project/litecore-build.git",
     "brfs": "^1.2.0",
     "browserify": "^8.1.1",
     "chai": "^2.0.0",
